@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float turnSpeed;
     [SerializeField] float height;
+    [SerializeField] int health;
     [SerializeField] GameObject camera;
     [SerializeField] GameObject spell;
     [SerializeField] GameObject wand;
@@ -67,6 +68,15 @@ public class PlayerController : MonoBehaviour
     void OnShoot()
     {
         Instantiate(spell, wand.transform.position, wand.transform.rotation);
+    }
+
+    public void Hurt(int damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 
