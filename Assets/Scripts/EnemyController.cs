@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject enemySprite;
     [SerializeField] float moveSpeed;
     [SerializeField] int health = 10;
+    [SerializeField] int score = 5;
     [SerializeField] int damage;
     [SerializeField] float damageTime;
     [SerializeField] float attackTime;
@@ -46,6 +47,7 @@ public class EnemyController : MonoBehaviour
         enemySprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
         if(health <= 0)
         {
+            player.GetComponent<PlayerController>().UpdateScore(score);
             StopAllCoroutines();
             Destroy(this.gameObject);
         }
