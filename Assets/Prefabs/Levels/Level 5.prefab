@@ -52,10 +52,16 @@ MonoBehaviour:
   - {fileID: 4420461841226329872, guid: c93ba523aa8203b458809345f8fa2c02, type: 3}
   - {fileID: 4420461841226329872, guid: 0587c5360f07d9844917bdf1eee9fa97, type: 3}
   - {fileID: 4420461841226329872, guid: e6152516c71a50b41b0a3dae7182905b, type: 3}
-  enemyFrequency: 
+  enemyFrequency:
+  - 10
+  - 12
+  - 12
+  - 8
+  - 6
+  - 6
   minSpawnDelay: 0.7
   maxSpawnDelay: 3
   minSpawns: 2
   maxSpawns: 6
   enemySpawnChance:
-  - 1
+  - 0

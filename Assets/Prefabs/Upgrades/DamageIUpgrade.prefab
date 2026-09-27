@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeTemplate
   upgradeType: Damage
   upgradeLevel: 1
-  upgradeSprite: {fileID: 21300000, guid: 747fa8d4dd0608448be1a1e6a52b421a, type: 3}
+  upgradeSprite: {fileID: 69670868, guid: 318ba2eecaa49c64386ee6d3b70f86ff, type: 3}

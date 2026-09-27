@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if(canShoot)
         {
-
+            
             Instantiate(currentSpell, wand.transform.position, wand.transform.rotation);
             StartCoroutine(Reload());
             PickNextShot();
@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
         UpdateHealthBar();
         if(health <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(2);
         }
         StartCoroutine(IFrames());
@@ -201,7 +202,7 @@ public class PlayerController : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(0);
     }
 
