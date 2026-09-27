@@ -162,7 +162,6 @@ MonoBehaviour:
   moveSpeed: 8
   turnSpeed: 4
   height: 1
-  health: 0
   health: 20
   invincibilityTime: 1
   camera: {fileID: 2567699420709751383}

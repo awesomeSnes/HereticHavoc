@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     Vector2 cameraInput;
 
-    public float maxTurnAngle = 90.0f;
-    public float minTurnAngle = -90.0f;
     private int score = 0;
     private float maxTurnAngle = 90.0f;
     private float minTurnAngle = -90.0f;
