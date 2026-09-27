@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject camera;
     [SerializeField] List<GameObject> spellList;
     [SerializeField] GameObject wand;
-
+    [SerializeField] AudioSource hurtSound;
+    [SerializeField] LevelController levelController;
     [SerializeField] GameObject currentSpell;
     [SerializeField] List<GameObject> currentSpellList;
     List<GameObject> tempSpellList;
@@ -30,13 +31,17 @@ public class PlayerController : MonoBehaviour
     Vector2 cameraInput;
 
     private int spellIndex;
-    private int score = 0;
+    public int score = 0;
     private float maxTurnAngle = 90.0f;
     private float minTurnAngle = -90.0f;
     private float rotX;
     private bool invincible;
     private bool canShoot = true;
 
+    void Awake()
+    {
+        levelController = FindObjectOfType<LevelController>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public void UpdateScore()
     {
         scoreText.text = score.ToString();
+        levelController.UpdateLevel();
     }
 
     //Updates movement when wsad is pressed  
@@ -141,6 +147,7 @@ public class PlayerController : MonoBehaviour
     public void Hurt(int damage)
     {
         if(invincible){ Debug.Log("Invincible"); return;}
+        hurtSound.Play();
         health -= damage;
         UpdateHealthBar();
         if(health <= 0)
