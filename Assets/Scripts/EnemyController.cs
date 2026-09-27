@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float damageTime;
     [SerializeField] float attackTime;
     [SerializeField] Color damageColor;
+    [SerializeField] Animator myAnimator;
 
     private bool takingDamage = false;
     private bool attacking = false;
@@ -49,8 +50,13 @@ public class EnemyController : MonoBehaviour
         {
             player.GetComponent<PlayerController>().UpdateScore(score);
             StopAllCoroutines();
-            Destroy(this.gameObject);
+            myAnimator.SetTrigger("dead");
         }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
     }
 
     void OnCollisionEnter(Collision other)
@@ -59,6 +65,7 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Its a player");
             attacking = true;
+            myAnimator.SetTrigger("isAttacking");
             other.gameObject.GetComponent<PlayerController>().Hurt(damage);
             StartCoroutine(DealDamage());
         }

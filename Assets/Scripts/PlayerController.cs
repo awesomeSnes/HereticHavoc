@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float turnSpeed;
     [SerializeField] float height;
     [SerializeField] int health;
+    [SerializeField] int maxHealth;
     [SerializeField] float shotDelay;
     [SerializeField] Slider healthBar;
     [SerializeField] Image nextSpell;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         UpdateScore();
         UpdateShotList();
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -140,12 +142,22 @@ public class PlayerController : MonoBehaviour
     {
         if(invincible){ Debug.Log("Invincible"); return;}
         health -= damage;
-        healthBar.value = health;
+        UpdateHealthBar();
         if(health <= 0)
         {
             Destroy(this.gameObject);
         }
         StartCoroutine(IFrames());
+    }
+
+    void UpdateHealthBar()
+    {
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        healthBar.maxValue = maxHealth;
+        healthBar.value = health;
     }
 
     IEnumerator IFrames()
