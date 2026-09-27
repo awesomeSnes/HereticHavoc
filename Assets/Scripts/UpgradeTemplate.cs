@@ -17,4 +17,9 @@ public class UpgradeTemplate : MonoBehaviour
             UpgradeHealth();
         }
     }
+
+    void UpgradeHealth()
+    {
+        
+    }
 }
