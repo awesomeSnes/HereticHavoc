@@ -3,6 +3,7 @@ using UnityEngine;
 public class Fireball : Spell
 {
     [SerializeField] float speed;
+
     
     
     private bool exploding = false;
@@ -33,9 +34,5 @@ public class Fireball : Spell
         myAnimator.SetBool("isExploding", true);
     }
 
-    public void Explode()
-    {
-        Destroy(this.gameObject);
-    }
-
+    
 }

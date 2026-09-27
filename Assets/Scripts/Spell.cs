@@ -6,6 +6,9 @@ public class Spell : MonoBehaviour
     [SerializeField] protected GameObject spellSprite;
     [SerializeField] protected GameObject player;
     [SerializeField] protected Animator myAnimator;
+    [SerializeField] public Sprite spellIcon;
+    [SerializeField] AudioSource myAudioSource;
+    [SerializeField] AudioClip sfx;
 
     void Start()
     {
@@ -15,5 +18,15 @@ public class Spell : MonoBehaviour
     void Update()
     {
         spellSprite.transform.LookAt(player.transform.position, Vector3.up);
+    }
+
+    public void Explode()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void PlaySoundEffect()
+    {
+        myAudioSource.Play();
     }
 }
