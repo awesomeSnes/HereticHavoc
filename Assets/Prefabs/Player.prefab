@@ -162,7 +162,8 @@ MonoBehaviour:
   moveSpeed: 8
   turnSpeed: 4
   height: 1
-  health: 0
+  health: 20
+  invincibilityTime: 1
   camera: {fileID: 2567699420709751383}
   spell: {fileID: 2814992207095839998, guid: 077372937a3ed704f8d3cbfdb45f5740, type: 3}
   wand: {fileID: 7911124883459666742}
