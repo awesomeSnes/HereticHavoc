@@ -9,18 +9,18 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
-    [SerializeField] float moveSpeed;
+    [SerializeField] public float moveSpeed;
     [SerializeField] float turnSpeed;
     [SerializeField] float height;
-    [SerializeField] int health;
-    [SerializeField] int maxHealth;
-    [SerializeField] float shotDelay;
+    [SerializeField] public int health;
+    [SerializeField] public int maxHealth;
+    [SerializeField] public float shotDelay = 1.5f;
     [SerializeField] Slider healthBar;
     [SerializeField] Image nextSpell;
     [SerializeField] TMP_Text scoreText;
-    [SerializeField] float invincibilityTime;
+    [SerializeField] public float invincibilityTime;
     [SerializeField] GameObject camera;
-    [SerializeField] List<GameObject> spellList;
+    [SerializeField] public List<GameObject> spellList;
     [SerializeField] GameObject wand;
     [SerializeField] AudioSource hurtSound;
     [SerializeField] LevelController levelController;
@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(IFrames());
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if(health > maxHealth)
         {

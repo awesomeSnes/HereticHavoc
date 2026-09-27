@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,17 @@ public class LevelController : MonoBehaviour
     [Range(2, 8)] [SerializeField] int maxSpawns = 4 ;
     [Range(0,1)] [SerializeField] List<float> enemySpawnChance;
     [SerializeField] Level[] levels;
+    [SerializeField] List<UpgradeTemplate> upgrades;
+    [SerializeField] Button upgradeBtn1;
+    [SerializeField] Button upgradeBtn2;
+    [SerializeField] Button upgradeBtn3;
+    [SerializeField] GameObject upgradeMenu;
 
     private PlayerController player;
     private int currentLevel = 0;
     private GameObject enemyToSpawn;
     private float enemyToSpawnSect;
+    [SerializeField] int upgrade1 = 0; [SerializeField] int upgrade2 = 0; [SerializeField] int upgrade3 = 0;
 
     void Awake()
     {
@@ -25,9 +32,7 @@ public class LevelController : MonoBehaviour
     }
     void Start()
     {
-        
-//        UpdateLevel();
-        
+        upgradeMenu.SetActive(false);
     }
 
     public void UpdateLevel()
@@ -35,6 +40,7 @@ public class LevelController : MonoBehaviour
         if(player.score >= levels[currentLevel + 1].scoreThreshold)
         {
             Debug.Log("Level Up!!!");
+            PromptUpgrade();
             currentLevel++;
             enemyTypes = levels[currentLevel].enemyTypes.ToList();
             minSpawnDelay = levels[currentLevel].minSpawnDelay;
@@ -55,6 +61,41 @@ public class LevelController : MonoBehaviour
             StartCoroutine(SpawnEnemies());
         }
     }
+
+    void PromptUpgrade()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        upgradeMenu.SetActive(true);
+        Time.timeScale = 0f;
+        upgrade1 = 0; upgrade2 = 0; upgrade3 = 0;
+        do{
+        upgrade1 = Random.Range(0, upgrades.Count); upgrade2 = Random.Range(0, upgrades.Count); upgrade3 = Random.Range(0, upgrades.Count);
+        } while(upgrade1 == upgrade2 || upgrade2 == upgrade3 || upgrade3 == upgrade1);
+        upgradeBtn1.GetComponent<Image>().sprite = upgrades[upgrade1].upgradeSprite;
+        upgradeBtn2.GetComponent<Image>().sprite = upgrades[upgrade2].upgradeSprite;
+        upgradeBtn3.GetComponent<Image>().sprite = upgrades[upgrade3].upgradeSprite;
+    }
+
+    public void Upgrade(int btnNum)
+    {
+        if(btnNum == 1)
+        {
+            upgrades[upgrade1].Upgrade(player);
+            upgrades.RemoveAt(upgrade1);
+        } else if(btnNum == 2)
+        {
+            upgrades[upgrade2].Upgrade(player);
+            upgrades.RemoveAt(upgrade2);
+        } else if(btnNum == 3)
+        {
+            upgrades[upgrade3].Upgrade(player);
+            upgrades.RemoveAt(upgrade3);
+        }
+        Time.timeScale = 1f;
+        upgradeMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
 
     IEnumerator SpawnEnemies()
     {

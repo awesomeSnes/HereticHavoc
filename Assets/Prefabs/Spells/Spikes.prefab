@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8628101283761282212}
   - component: {fileID: 5988142659875273667}
   m_Layer: 7
-  m_Name: Lightning 1
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

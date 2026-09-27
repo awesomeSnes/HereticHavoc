@@ -28,6 +28,9 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/castle.unity
     m_guid: b5b086d77b6a10e4fb89f45f7a544fc2
+  - m_enabled: 1
+    m_path: Assets/Scenes/Game Over.unity
+    m_guid: 861ae2fa97a4c614bb374e50f119234f
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

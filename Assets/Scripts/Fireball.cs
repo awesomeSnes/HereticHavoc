@@ -30,6 +30,8 @@ public class Fireball : Spell
             else{
                 transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
             }
+        } else if(canFlicker){
+            GetComponent<BoxCollider>().enabled = !GetComponent<BoxCollider>().enabled;
         }
     }
 
@@ -39,7 +41,11 @@ public class Fireball : Spell
         if(other.gameObject.GetComponent<EnemyController>() != null)
         {
             Debug.Log("Its an enemy");
-            other.gameObject.GetComponent<EnemyController>().Hurt(damage);         
+            other.gameObject.GetComponent<EnemyController>().Hurt(damage);  
+            if(isPiercing)
+            {
+                return;
+            }       
         }
         exploding = true;
         myAnimator.SetBool("isExploding", true);

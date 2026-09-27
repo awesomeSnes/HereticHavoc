@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    [SerializeField] protected int damage = 5;
-    [SerializeField] protected GameObject spellSprite;
+    [SerializeField] public int damage = 5;
+    [SerializeField] public GameObject spellSprite;
     [SerializeField] protected GameObject player;
     [SerializeField] protected Animator myAnimator;
     [SerializeField] public Sprite spellIcon;
     [SerializeField] AudioSource myAudioSource;
     [SerializeField] AudioClip sfx;
-    [SerializeField] protected bool isSeeking;
+    [SerializeField] public bool isSeeking;
+    [SerializeField] public bool isPiercing;
+    [SerializeField] public bool canFlicker;
 
     void Start()
     {
