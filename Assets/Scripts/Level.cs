@@ -35,7 +35,6 @@ public class Level : MonoBehaviour
             sectioner += enemyFrequency[j]/totalFrequency;
             Debug.Log(enemyFrequency[j]/totalFrequency);
         }
-        enemySpawnChance.Add(1f);
         Debug.Log(enemySpawnChance);
         return enemySpawnChance;
     }

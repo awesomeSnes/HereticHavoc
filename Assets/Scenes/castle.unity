@@ -3360,11 +3360,11 @@ PrefabInstance:
     - target: {fileID: 7651047393710272065, guid: 2c5d99cb6a519754cafacd0168880461, type: 3}
       propertyPath: 'spellList.Array.data[0]'
       value: 
-      objectReference: {fileID: 2814992207095839998, guid: 077372937a3ed704f8d3cbfdb45f5740, type: 3}
+      objectReference: {fileID: 2814992207095839998, guid: b5330a5632fb15a4e840a81063463275, type: 3}
     - target: {fileID: 7651047393710272065, guid: 2c5d99cb6a519754cafacd0168880461, type: 3}
       propertyPath: 'spellList.Array.data[1]'
       value: 
-      objectReference: {fileID: 2814992207095839998, guid: fbb297fc51d4e9b44ac9cc30ec1dee1d, type: 3}
+      objectReference: {fileID: 2814992207095839998, guid: 077372937a3ed704f8d3cbfdb45f5740, type: 3}
     - target: {fileID: 7651047393710272065, guid: 2c5d99cb6a519754cafacd0168880461, type: 3}
       propertyPath: currentSpellList.Array.size
       value: 0

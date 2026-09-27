@@ -27,7 +27,7 @@ public class LevelController : MonoBehaviour
     {
         
 //        UpdateLevel();
-        StartCoroutine(SpawnEnemies());
+        
     }
 
     public void UpdateLevel()
@@ -52,6 +52,7 @@ public class LevelController : MonoBehaviour
             minSpawns = levels[currentLevel].minSpawns;
             maxSpawns = levels[currentLevel].maxSpawns;
             enemySpawnChance = levels[currentLevel].CalculateSpawnPercentage();
+            StartCoroutine(SpawnEnemies());
         }
     }
 
@@ -62,7 +63,7 @@ public class LevelController : MonoBehaviour
             List<GameObject> tempSpawnList = enemySpawners.ToList();
             for(int i = 0; i < numToSpawn; i++)
             {   
-                int spawner = Random.Range(0, tempSpawnList.Count);
+                int spawner = Random.Range(0, tempSpawnList.Count - 1);
                 //if(tempSpawnList.Count <= 1){ enemyToSpawn = tempSpawnList[0];}
                     enemyToSpawnSect = Random.Range(0f, 1f);
                     for(int j = 0; j < enemyTypes.Count; j++)

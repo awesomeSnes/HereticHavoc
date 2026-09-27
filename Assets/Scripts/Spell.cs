@@ -9,6 +9,7 @@ public class Spell : MonoBehaviour
     [SerializeField] public Sprite spellIcon;
     [SerializeField] AudioSource myAudioSource;
     [SerializeField] AudioClip sfx;
+    [SerializeField] protected bool isSeeking;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class Spell : MonoBehaviour
 
     void Update()
     {
+        
         spellSprite.transform.LookAt(player.transform.position, Vector3.up);
     }
 
