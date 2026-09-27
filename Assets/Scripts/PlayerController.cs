@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LevelController levelController;
     [SerializeField] GameObject currentSpell;
     [SerializeField] List<GameObject> currentSpellList;
+    [SerializeField] GameObject pauseUI;
     List<GameObject> tempSpellList;
     Vector2 moveInput;
     Vector2 cameraInput;
@@ -46,10 +47,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        pauseUI.SetActive(false);
         UpdateScore();
         UpdateShotList();
         UpdateHealthBar();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -152,7 +155,7 @@ public class PlayerController : MonoBehaviour
         UpdateHealthBar();
         if(health <= 0)
         {
-            Destroy(this.gameObject);
+            SceneManager.LoadScene(2);
         }
         StartCoroutine(IFrames());
     }
@@ -181,6 +184,25 @@ public class PlayerController : MonoBehaviour
         canShoot = true;
     }
 
+    void OnPause()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        pauseUI.SetActive(true);
+    }
 
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        pauseUI.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(0);
+    }
 
 }
