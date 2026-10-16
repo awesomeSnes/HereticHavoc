@@ -202,7 +202,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -222,14 +222,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950524a907edddd428e3d52c00bf9b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  damage: 10
+  damage: 16
   spellSprite: {fileID: 898970705749327036}
   player: {fileID: 0}
   myAnimator: {fileID: 8507434503621573976}
   spellIcon: {fileID: 21300000, guid: ff4ffed84c54c1a4fbc5aecff3082dea, type: 3}
   myAudioSource: {fileID: 5988142659875273667}
   sfx: {fileID: 8300000, guid: f81a99104d3ca0f418919a447490c500, type: 3}
+  isSeeking: 0
+  isPiercing: 0
+  canFlicker: 0
   speed: 50
+  target: {fileID: 0}
 --- !u!54 &7412630193153491942
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -292,7 +296,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
